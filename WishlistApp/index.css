@@ -1,0 +1,80 @@
+body {
+     background-color: #111827;
+     color: #FFFFFF;
+     font-family: 'Arial', sans-serif;
+     margin: 0;
+     padding: 0;
+    }
+    
+    .main {
+     text-align: center;
+     padding: 50px 20px;
+     max-width: 600px;
+     margin: 0 auto;
+    }
+
+    h1 {
+     color: #F3F4F6;
+     font-size: 2.5rem;
+     margin-bottom: 20px;
+    }
+  
+    .todo-form {
+     display: flex;
+     gap: 15px;
+    }
+   
+    .todo-form input {
+     background-color: #353B48;
+     /* padding: 15px; */
+     border-radius: 5px;
+     border: none;
+     color: #FFFFFF;
+     font-size: 1rem;
+     width: 100%;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+     transition: background-color 0.3s ease;
+    }
+    
+    .todo-form input:focus {
+     background-color: #1F2937;
+     outline: none;
+    }
+    
+
+    .todo-form button {
+     background-color: #EF4444;
+     color: #FFFFFF;
+     padding: 15px;
+     border-radius: 5px;
+     border: none;
+     font-size: 1.2rem;
+     cursor: pointer;
+     transition: background-color 0.3s ease, transform 0.2s;
+    }
+    
+    .todo-form button:hover {
+     background-color: #DC2626;
+     transform: scale(1.05);
+    }
+    
+    .todo-form button:active {
+     transform: scale(0.98);
+    }
+    
+    /* Responsive design for smaller screens */
+    @media (max-width: 768px) {
+     .main {
+     padding: 30px 15px;
+     }
+    
+     h1 {
+     font-size: 2rem;
+     }
+    
+     .todo-form button, .todo-form input {
+     padding: 12px;
+     font-size: 1rem;
+     }
+    }
+    
