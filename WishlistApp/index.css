@@ -61,7 +61,23 @@ body {
     .todo-form button:active {
      transform: scale(0.98);
     }
+
+    .todo{
+     font-size: 1.5rem;
+     cursor: pointer;
+    }
+
     
+    .checked-todo{
+     text-decoration: line-through;
+     color: #888888;
+     font-style: italic;
+    }
+
+    .dlt-btn{
+     color: white;
+    }
+
     /* Responsive design for smaller screens */
     @media (max-width: 768px) {
      .main {
