@@ -26,7 +26,6 @@ body {
    
     .todo-form input {
      background-color: #353B48;
-     /* padding: 15px; */
      border-radius: 5px;
      border: none;
      color: #FFFFFF;
@@ -75,9 +74,19 @@ body {
     }
 
     .dlt-btn{
+     display: flex;
      color: white;
+     background-color: #111827;
+     border: none;
+     cursor: pointer;
     }
 
+    .showTodo{
+     display: flex;
+     margin: 5px;
+     }
+
+    
     /* Responsive design for smaller screens */
     @media (max-width: 768px) {
      .main {

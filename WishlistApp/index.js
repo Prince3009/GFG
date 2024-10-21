@@ -3,8 +3,10 @@ let todoInput = document.querySelector(".input");
 let addTodoButton = document.querySelector(".button");
 let showTodos = document.querySelector(".todos-container");
 
+let localData = JSON.parse(localStorage.getItem("todo"));
+
 // Declare a variable to store the todo item input by the user
-let todoList = [];
+let todoList = localData || [];
 
 // Function to generate a unique identifier (UUID) for each todo item
 function uuid() {
@@ -26,6 +28,7 @@ addTodoButton.addEventListener("click", (e) => {
             isCompleted: false  // Mark the new todo as not completed by default
         });
         renderTodoList(todoList);                      // Render the updated todo list
+        localStorage.setItem('todo', JSON.stringify(todoList));
         todoInput.value = '';                          // Clear the input field after adding a todo
     }
 });
@@ -42,16 +45,19 @@ showTodos.addEventListener("click", (e) => {
             todoList = todoList.filter(todo => todo.id!== deleteTodoKey);
         
         renderTodoList(todoList);                            // Render the updated todo list
+        localStorage.setItem('todo', JSON.stringify(todoList));
+ 
     }
 );
 
 // Function to render the todo items in the UI
 function renderTodoList(todoList) {    
     showTodos.innerHTML = todoList.map(({ id, whatTodo, isCompleted }) => `
-        <div>
+        <div class="showTodo">
             <input id="item-${id}" type="checkbox" data-key="${id}" ${isCompleted ? "checked" : ""}>
             <label for="item-${id}" class="todo ${isCompleted ? "checked-todo" : ""}" data-key="${id}">${whatTodo}</label>
-            <button class="dlt-btn" data-todokey="${id}">Delete</button>
+            <button class="dlt-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" class="dlt-btn" data-todokey="${id}" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
+            </button>
         </div>
     `).join(''); // Join the array of HTML strings into one large string
 }
